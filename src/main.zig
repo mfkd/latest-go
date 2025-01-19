@@ -41,6 +41,7 @@ pub fn main() !void {
     const response = try get(kernel_releases_url, headers, &client, alloc);
 
     const parsed_json = try std.json.parseFromSlice([]GoVersion, allocator, response.items, .{});
+    defer parsed_json.deinit();
 
     var latest_stable_version: ?[]const u8 = null;
 
