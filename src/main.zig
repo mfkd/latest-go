@@ -52,7 +52,7 @@ pub fn main() !void {
         }
     }
 
-    try writer.print("Latest stable version: {s}\n", .{latest_stable_version orelse "No stable version found"});
+    try writer.print("Latest stable version: \x1b[31m{s}\x1b[0m\n", .{latest_stable_version orelse "No stable version found"});
 }
 
 fn get(
